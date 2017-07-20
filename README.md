@@ -15,4 +15,4 @@ A Neovim configuration inspired by Spacemacs
 ![linting](screenshots/linting1.png)
 
 #### Errors in the quickfix window
-![linting](screenshots/linting1.png)
+![linting](screenshots/linting2.png)
