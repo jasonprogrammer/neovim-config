@@ -22,3 +22,8 @@ Search and replace with Ripgrep. Yes, you can edit in the quickfix buffer, and s
 
 #### Errors in the quickfix window
 ![linting quickfix errors](screenshots/linting2.png)
+
+## Auto-completion
+
+#### Python auto-completion and preview with Jedi
+![auto completion for python](screenshots/pythonautocomplete.png)
