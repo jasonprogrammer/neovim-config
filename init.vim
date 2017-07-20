@@ -87,30 +87,63 @@ set expandtab
 set inccommand=split
 set incsearch
 
+" Show information about visual selections, and more
+set showcmd
+
 " Enable syntax highlighting
 syntax enable
 
-" clear search highlighting with <enter> key
+" Clear search highlighting with <enter> key
 nnoremap <CR> :noh<CR><CR>
 
 " Make searches case insensitive by default
 set ignorecase
 set smartcase
 
+" Type: fd instead of the Escape key, to get back into normal mode
 :inoremap fd <Esc>
-set showcmd
+
+" Set the leader key to <SPACE> (inspired by Spacemacs)
 :let mapleader = " "
+
+" Search for files in your project using <SPACE> pf
 :nnoremap <leader>pf :GFiles<CR>
+
+" Fuzzy search for files with <SPACE> /
 :nnoremap <leader>/ :Ag<CR>
+
+" Fuzzy search recently opened files with <SPACE> bb
 :nnoremap <leader>bb :History<CR>
+
+" Navigate the file tree with <SPACE> ff
 :nnoremap <leader>ff :Vexplore<CR>
+
+" Open this VIM config file
+" (http://learnvimscriptthehardway.stevelosh.com/chapters/07.html)
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Source (apply the changes in) this VIM config file
+" (http://learnvimscriptthehardway.stevelosh.com/chapters/07.html)
 :nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Open the previous Ripgrep search with <SPACE> sl
+" This opens the previous quickfix window
 :nnoremap <leader>sl :colder<cr> :wincmd j<cr>
+
+" Close a buffer with <SPACE> wc
 :nnoremap <leader>wc :q<cr>
+
+" Maximize the window (size) with <SPACE> wm
 :nnoremap <leader>wm :wincmd o<cr>
+
+" Save files with: <SPACE> fs
 :nnoremap <leader>fs :w<CR>
+
+" Use Ripgrep to find the word under the cursor, when pressing * while on the
+" word
 :nnoremap <leader>* :Rg<CR>
+
+" Switch back and forth between two buffers with <TAB>
 :nnoremap <tab> <C-^>
 
 " Terminal mouse support
@@ -126,39 +159,38 @@ let g:deoplete#enable_at_startup = 1
 " Clipboard support
 set clipboard+=unnamedplus
 
-" Switch between windows
+" Switch between windows (<CTRL> j, <CTRL> k, etc.)
+" https://stackoverflow.com/a/6053341/1090619
 :nmap <silent> <C-h> :wincmd h<CR>
 :nmap <silent> <C-j> :wincmd j<CR>
 :nmap <silent> <C-k> :wincmd k<CR>
 :nmap <silent> <C-l> :wincmd l<CR>
 
-" Ale Linting
+" ALE Linting in your quickfix window
 let g:ale_set_quickfix = 1
-" Go to prev/next lint error
+" Go to prev/next lint error in your buffer using <CTRL> ]
 nmap <silent> <C-[> <Plug>(ale_previous_wrap)
 nmap <silent> <C-]> <Plug>(ale_next_wrap)
 
-" Sneak motion like EasyMotion
+" Vim-sneak motion like EasyMotion
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 
-" Fugitive
+" Git Fugitive shortcuts (https://stackoverflow.com/a/28916959/1090619)
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gp :Git push<CR>
-nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
-nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
 
-" Vim Rooter
+" Tell VIM Rooter where the project root is, using a blank .rooter-project file
 let g:rooter_patterns = ['.rooter-project']
 
-" UltiSnips config
+" Snippets config (start typing a snippets prefix, then <CTRL> e to expand it
 let g:UltiSnipsExpandTrigger="<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" Use ripgrep instead of Ag for fzf
+" Use Ripgrep instead of Ag for fzf
+" https://github.com/junegunn/fzf.vim#advanced-customization
 command! -bang -nargs=* RgAg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
