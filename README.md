@@ -1,6 +1,10 @@
 # neovim-config
 A Neovim configuration inspired by Spacemacs
 
+## Fuzzy searching
+
+![linting](screenshots/fuzzysearch1.png)
+
 ## Linting with ALE
 
 #### Errors in the gutter
