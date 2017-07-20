@@ -3,7 +3,11 @@ A Neovim configuration inspired by Spacemacs
 
 ## Fuzzy searching
 
+#### Fuzzy searching for text in project files
 ![linting](screenshots/fuzzysearch1.png)
+
+#### Fuzzy searching for recently opened files
+![linting](screenshots/fuzzysearchfiles.png)
 
 ## Linting with ALE
 
